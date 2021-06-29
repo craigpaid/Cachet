@@ -3,14 +3,18 @@
 @if($componentGroup->enabled_components->count() > 0)
 <ul class="list-group components">
     <li class="list-group-item group-name">
+    @if(!$componentGroup->private)
         <i class="{{ $componentGroup->collapse_class }} group-toggle"></i>
+    @endif
         <span class="component-group-name">{{ $componentGroup->name }}</span>
     </li>
+    @if(!$componentGroup->private)
     <div class="group-items {{ $componentGroup->is_collapsed ? "hide" : null }}">
         @foreach($componentGroup->enabled_components()->get() as $component)
         @include('dashboard.partials.component', compact($component))
         @endforeach
     </div>
+    @endif
 </ul>
 @endif
 @endforeach

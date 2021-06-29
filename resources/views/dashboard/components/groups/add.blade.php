@@ -36,6 +36,13 @@
                             <option value="1" selected>{{ trans('forms.components.groups.visibility_public') }}</option>
                         </select>
                     </div>
+                    <input type="hidden" name="private" value="0">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="private" value="1" checked="{{ Binput::old('private', 'checked') }}">
+                            {{ trans('forms.components.groups.private') }}
+                        </label>
+                    </div>
                 </fieldset>
 
                 <div class="btn-group">

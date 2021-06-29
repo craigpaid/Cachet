@@ -50,9 +50,10 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string
      */
     protected $attributes = [
-        'order'     => 0,
-        'collapsed' => 0,
-        'visible'   => 0,
+        'order'          => 0,
+        'collapsed'      => 0,
+        'visible'        => 0,
+        'hideComponents' => 0,
     ];
 
     /**
@@ -61,10 +62,11 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'name'      => 'string',
-        'order'     => 'int',
-        'collapsed' => 'int',
-        'visible'   => 'int',
+        'name'           => 'string',
+        'order'          => 'int',
+        'collapsed'      => 'int',
+        'visible'        => 'int',
+        'hideComponents' => 'int',
     ];
 
     /**
@@ -72,7 +74,7 @@ class ComponentGroup extends Model implements HasPresenter
      *
      * @var string[]
      */
-    protected $fillable = ['name', 'order', 'collapsed', 'visible'];
+    protected $fillable = ['name', 'order', 'collapsed', 'visible', 'hideComponents'];
 
     /**
      * The validation rules.
@@ -80,10 +82,11 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'      => 'required|string',
-        'order'     => 'required|int',
-        'collapsed' => 'required|int|between:0,4',
-        'visible'   => 'required|bool',
+        'name'           => 'required|string',
+        'order'          => 'required|int',
+        'collapsed'      => 'required|int|between:0,4',
+        'visible'        => 'required|bool',
+        'hideComponents' => 'required|bool',
     ];
 
     /**
@@ -97,6 +100,7 @@ class ComponentGroup extends Model implements HasPresenter
         'order',
         'collapsed',
         'visible',
+        'private',
     ];
 
     /**
@@ -110,6 +114,7 @@ class ComponentGroup extends Model implements HasPresenter
         'order',
         'collapsed',
         'visible',
+        'private',
     ];
 
     /**
